@@ -6,17 +6,20 @@
 #    By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 16:01:02 by mflury            #+#    #+#              #
-#    Updated: 2023/03/17 15:01:54 by mflury           ###   ########.fr        #
+#    Updated: 2023/03/29 14:57:43 by mflury           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long.a
+NAME = so_long
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 CC = @gcc
 CFLAGS = -Wall -Werror -Wextra -W
 
 SRC = so_long.c \
+		player_move.c \
+		mapping.c \
+
 
 
 all : $(NAME)
@@ -24,15 +27,19 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@echo Creating mlx library
 	@make -C mlx/
-	$(CC) $(OBJ) -Imlx -W ./mlx/libmlx.a -framework OpenGL -framework AppKit -o $(NAME)
+	@make -C gnl/
+	@make -C libft/
+	$(CC) $(OBJ) -Imlx -W ./mlx/libmlx.a -framework OpenGL -framework AppKit ./gnl/get_next_line.a ./libft/libft.a -o $(NAME)
 
 %.o : %.c
 	@echo Creating objets files $<
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx -Ignl -Ilibft -c $< -o $@
 
 clean :
 	@echo Deleting objets files
 	@make clean -C mlx/
+	@make clean -C gnl/
+	@make clean -C libft/
 	@rm -f $(OBJ)
 	
 fclean : clean 
@@ -43,10 +50,10 @@ re : fclean all
 
 tar :
 	@echo Creating TAR.GZ archive
-	@tar -czvf $(NAME).tar.gz $(SRC) libft.h Makefile
+	@tar -czvf $(NAME).tar.gz $(SRC) so_long.h Makefile
 
 zip :
 	@echo Creating ZIP archive
-	@zip -r $(NAME).zip $(SRC) libft.h Makefile
+	@zip -r $(NAME).zip $(SRC) so_long.h Makefile
 
 .PHONY : clean fclean re tar zip
