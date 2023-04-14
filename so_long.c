@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:55:11 by mflury            #+#    #+#             */
-/*   Updated: 2023/03/29 14:57:37 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/14 18:08:40 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,20 @@ void	var_init(t_data *var)
 {
 	var->player.posx = 0;
 	var->player.posy = 0;
-	var->map.groundx = 0;
-	var->map.groundy = 0;
-	var->map.wallx = 0;
-	var->map.wally = 0;
-	var->map.itemx = 0;
-	var->map.itemy = 0;
-	var->map.doorx = 0;
-	var->map.doory = 0;
 	var->map.tabx = 0;
 	var->map.taby = 0;
+	var->map.tabmaxx = 0;
+	var->map.tabmaxy = 0;
+	var->line = NULL;
+// 	var->map.groundx = 0;
+// 	var->map.groundy = 0;
+// 	var->map.wallx = 0;
+//	var->map.wally = 0;
+//	var->map.itemx = 0;
+// 	var->map.itemy = 0;
+// 	var->map.doorx = 0;
+// 	var->map.doory = 0;
+
 }
 
 void	initial_frame(t_data *var)
@@ -93,7 +97,8 @@ int	so_long(void)
 	// make the first frame.
 	initial_frame(&var);
 	// make map builder
-	init_game(&var);
+	if (init_game(&var) == 0)
+		printf("SUCCES\n");
 	// hook for esc key event, ESC clean close.
 	mlx_hook(var.mlx_win, ON_KEYDOWN, 0, keeb_listener, &var);
 	// hook for red cross event, REDCROSS clean close.

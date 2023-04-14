@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/03/29 14:57:40 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/14 18:08:38 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,25 @@ typedef struct s_pdata {
 
 typedef struct s_mdata {
 	int			fd;
+	char		*line;
 	char		**tab;
 	int			tabx;
 	int			taby;
-	int			groundx;
-	int			groundy;
-	int			wallx;
-	int			wally;
-	int			doorx;
-	int			doory;
-	int			itemx;
-	int			itemy;
+	int			tabmaxx;
+	int			tabmaxy;
+	// int			groundx;
+	// int			groundy;
+	// int			wallx;
+	// int			wally;
+	// int			doorx;
+	// int			doory;
+	// int			itemx;
+	// int			itemy;
 	char		*relative_path_ground;
 	char		*relative_path_wall;
 	char		*relative_path_door;
 	char		*relative_path_item;
+	
 }				t_mdata;
 
 typedef struct s_data {
@@ -89,8 +93,6 @@ void	wall_builder(t_data *var);
 
 #endif
 
-
-
 /*
 		  0|1|2|3|4|5|6| 7| 8|
 -----------|-|-|-|-|-|-|--|--|
@@ -100,7 +102,7 @@ tab [1] | 1|0|0|0|C|0|1|\n|\0|
 tab[1][4] = C
 
 
-		// definis le nombre d index du tableau (char *)
+		// definis le nombre d index du tableau (int)
 tab = malloc(2 * sizeof(char *));
 		// definis le nombre de cases a l'index x du tableau
 tab[0] = malloc(8 * sizeof(char));

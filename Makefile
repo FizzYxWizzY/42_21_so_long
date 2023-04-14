@@ -6,7 +6,7 @@
 #    By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 16:01:02 by mflury            #+#    #+#              #
-#    Updated: 2023/03/29 14:57:43 by mflury           ###   ########.fr        #
+#    Updated: 2023/03/29 15:13:05 by mflury           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 CC = @gcc
-CFLAGS = -Wall -Werror -Wextra -W
+CFLAGS = -Wall -Werror -Wextra -W -g3 -fsanitize=address
 
 SRC = so_long.c \
 		player_move.c \
@@ -29,7 +29,7 @@ $(NAME) : $(OBJ)
 	@make -C mlx/
 	@make -C gnl/
 	@make -C libft/
-	$(CC) $(OBJ) -Imlx -W ./mlx/libmlx.a -framework OpenGL -framework AppKit ./gnl/get_next_line.a ./libft/libft.a -o $(NAME)
+	$(CC) $(OBJ) $(CFLAGS) -Imlx ./mlx/libmlx.a -framework OpenGL -framework AppKit ./gnl/get_next_line.a ./libft/libft.a -o $(NAME)
 
 %.o : %.c
 	@echo Creating objets files $<
