@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/14 18:08:38 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/17 20:06:42 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ typedef struct s_pdata {
 typedef struct s_mdata {
 	int			fd;
 	char		*line;
-	char		**tab;
-	int			tabx;
-	int			taby;
-	int			tabmaxx;
-	int			tabmaxy;
+	char		**tab; 
+	int			tabx;  //
+	int			taby;  //
+	int			tabmaxx; // set in map_parser, useed to know the end of the line.
+	int			tabmaxy; // set in map_parser, used to know end of tab[]
 	// int			groundx;
 	// int			groundy;
 	// int			wallx;

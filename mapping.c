@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:06:18 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/14 18:08:29 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/17 19:29:02 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ int	first_last(t_data *var)
 			return (1);
 		if (var->map.tab[var->map.max_size_y - 1][i + 1] == '\0' && i == var->map.max_size_x - 1)
 			return (0);
-			i++;
+		i++;
 	}
 	return (1);
 }
