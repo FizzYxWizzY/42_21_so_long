@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/18 23:17:43 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/18 23:30:33 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,20 +97,3 @@ int		first_last_line(t_data *var);
 // void	item_builder(t_data *var);
 
 #endif
-
-/*
-		  0|1|2|3|4|5|6| 7| 8|
------------|-|-|-|-|-|-|--|--|
-tab [0] | 1|1|1|1|1|1|3|\n|\0|
-tab [1] | 1|0|0|0|C|0|1|\n|\0|
-
-tab[1][4] = C
-
-
-		// definis le nombre d index du tableau (int)
-tab = malloc(2 * sizeof(char *));
-		// definis le nombre de cases a l'index x du tableau
-tab[0] = malloc(8 * sizeof(char));
-tab[1] = malloc(8 * sizeof(char));
-
-*/

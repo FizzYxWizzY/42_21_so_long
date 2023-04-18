@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:06:18 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/18 23:17:55 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/18 23:30:39 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ void	wall_builder(t_data *var)
 			&var->img_width, &var->img_height);
 	//while (var->map.wallx < 1000)
 	//{
-		while (var->map.wally < 1000)
-		{
-			mlx_put_image_to_window(var->mlx, var->mlx_win, var->img,
-				var->map.wallx, var->map.wally);
-			var->map.wally += 100;
-		}
-			var->map.wally = 0;
-			var->map.wallx += 100;
+		// while (var->map.wally < 1000)
+		// {
+		// 	mlx_put_image_to_window(var->mlx, var->mlx_win, var->img,
+		// 		var->map.wallx, var->map.wally);
+		// 	var->map.wally += 100;
+		// }
+		// 	var->map.wally = 0;
+		// 	var->map.wallx += 100;
 	//}
 	var->map.wallx = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:09:35 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/18 23:17:52 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/18 23:30:37 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ int	init_map(t_data *var)
 	if (f(var) != 0)
 		return (1);
 
-	free(var->map.tab);
+	// free(var->map.tab);
 	return (0);
 }
