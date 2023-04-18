@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:06:18 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/18 23:30:39 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/19 00:10:23 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,25 @@
 	var->map.itemx = 0;
 }*/
 
+// not tested yet but should use the tab now.
+//
 void	wall_builder(t_data *var)
 {
+	var->map.taby = 0;
+	var->map.tabx = 0;
 	var->img = mlx_xpm_file_to_image(var->mlx, var->map.relative_path_wall,
 			&var->img_width, &var->img_height);
-	//while (var->map.wallx < 1000)
-	//{
-		// while (var->map.wally < 1000)
-		// {
-		// 	mlx_put_image_to_window(var->mlx, var->mlx_win, var->img,
-		// 		var->map.wallx, var->map.wally);
-		// 	var->map.wally += 100;
-		// }
-		// 	var->map.wally = 0;
-		// 	var->map.wallx += 100;
-	//}
+	while (var->map.tab[var->map.taby] != '\0')
+	{
+		while (var->map.tab[var->map.taby][var->map.tabx] != 0)
+		{
+		 	mlx_put_image_to_window(var->mlx, var->mlx_win, var->img,
+		 		(var->map.tabx * 100), (var->map.taby * 100));
+			var->map.taby++;
+		}
+		var->map.taby = 0;
+		var->map.tabx++;
+	}
 	var->map.wallx = 0;
 }
 
