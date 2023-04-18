@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/18 23:30:33 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/19 00:19:13 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		first_last_column(t_data *var);
 int		first_last_line(t_data *var);
 
 // void	ground_builder(t_data *var);
-// void	wall_builder(t_data *var);
+void	wall_builder(t_data *var);
 // void	item_builder(t_data *var);
 
 #endif

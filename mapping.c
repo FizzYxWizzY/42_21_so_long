@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:06:18 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/19 00:10:23 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/19 00:19:04 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 }*/
 
 // not tested yet but should use the tab now.
-//
+// not finished yet
 void	wall_builder(t_data *var)
 {
 	var->map.taby = 0;
@@ -67,11 +67,13 @@ void	wall_builder(t_data *var)
 		var->map.taby = 0;
 		var->map.tabx++;
 	}
-	var->map.wallx = 0;
+	var->map.tabx = 0;
 }
 
 void	ground_builder(t_data *var)
 {
+	var->map.taby = 0;
+	var->map.tabx = 0;
 	var->img = mlx_xpm_file_to_image(var->mlx, var->map.relative_path_ground,
 			&var->img_width, &var->img_height);
 	while (var->map.groundx < (maxsizex * 100))
