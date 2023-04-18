@@ -6,7 +6,7 @@
 #    By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 16:01:02 by mflury            #+#    #+#              #
-#    Updated: 2023/03/29 15:13:05 by mflury           ###   ########.fr        #
+#    Updated: 2023/04/18 23:17:40 by mflury           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFLAGS = -Wall -Werror -Wextra -W -g3 -fsanitize=address
 SRC = so_long.c \
 		player_move.c \
 		mapping.c \
-
+		map_parsing.c \
+		map_checking.c \
 
 
 all : $(NAME)

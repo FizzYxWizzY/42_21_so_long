@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:09:35 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/17 20:06:47 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/18 23:17:52 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int	map_parser(t_data *var)
 
 // call all the functions to make the map, the if checks for error.
 // 1. read the .ber file and write it in a tab. return 1 if there is an error.
-// 2. 
+// 2. make all the checks to see if map is valid.
+// 3. 
+// 4. 
 int	init_map(t_data *var)
 {
 	if (map_parser(var) != 0)

@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/17 20:06:42 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/18 23:17:43 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ typedef struct s_mdata {
 	int			fd;
 	char		*line;
 	char		**tab; 
-	int			tabx;  //
-	int			taby;  //
-	int			tabmaxx; // set in map_parser, useed to know the end of the line.
+	int			tabx;
+	int			taby;
+	int			tabmaxx; // set in map_parser, used to know the end of the line.
 	int			tabmaxy; // set in map_parser, used to know end of tab[]
 	// int			groundx;
 	// int			groundy;
@@ -83,12 +83,17 @@ void	move_down(int keycode, t_data *var);
 void	move_right(int keycode, t_data *var);
 
 int		init_game(t_data *var);
+int		init_map(t_data *var)
 int		map_parser(t_data *var);
+char	*line_copier(t_data *var, char *line);
 int		map_checker(t_data *var);
-char	*copy_line(t_data *var, char *last_line, int index);
+int		char_checker(t_data *var);
+int		wall_checker(t_data *var);
+int		first_last_column(t_data *var);
+int		first_last_line(t_data *var);
 
-void	ground_builder(t_data *var);
-void	wall_builder(t_data *var);
+// void	ground_builder(t_data *var);
+// void	wall_builder(t_data *var);
 // void	item_builder(t_data *var);
 
 #endif
