@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/24 16:12:18 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/28 19:11:09 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <unistd.h>
-# include <mlx.h>
-# include "./gnl/get_next_line.h"
-# include "./libft/libft.h"
-
-enum {
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
-	ON_DESTROY = 17
-};
+# include "get_next_line.h"
 
 typedef struct s_pdata {
 	char		*relative_path_player;
@@ -42,13 +30,10 @@ typedef struct s_mdata {
 	int			fd;
 	char		*line;
 	char		**tab; 
-	int			tabx;
-	int			taby;
-	int			tabmaxx; // set in map_parser, used to know the end of the line.
+	int			tabx;  //
+	int			taby;  //
+	int			tabmaxx; // set in map_parser, useed to know the end of the line.
 	int			tabmaxy; // set in map_parser, used to know end of tab[]
-	int			ecount;
-	int			pcount;
-	int			ccount;
 	char		*relative_path_ground;
 	char		*relative_path_wall;
 	char		*relative_path_door;
@@ -70,25 +55,8 @@ typedef struct s_data {
 	t_mdata		map;
 }				t_data;
 
-int		so_long(void);
-
-void	move_up(int keycode, t_data *var);
-void	move_left(int keycode, t_data *var);
-void	move_down(int keycode, t_data *var);
-void	move_right(int keycode, t_data *var);
-
-int		init_game(t_data *var);
-int		init_map(t_data *var)
+void	var_init(t_data *var);
 int		map_parser(t_data *var);
-char	*line_copier(t_data *var, char *line);
-int		map_checker(t_data *var);
-int		char_checker(t_data *var);
-int		wall_checker(t_data *var);
-int		first_last_column(t_data *var);
-int		first_last_line(t_data *var);
-
-// void	ground_builder(t_data *var);
-void	wall_builder(t_data *var);
-// void	item_builder(t_data *var);
+void	error(char *msg);
 
 #endif
