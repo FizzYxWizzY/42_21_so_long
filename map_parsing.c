@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:09:35 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/19 00:19:07 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/24 16:01:45 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*line_copier(t_data *var, char *line)
 	while (var->map.tabx < var->map.tabmaxx && line[var->map.tabx] != '\n')
 	{
 		var->map.tab[var->map.taby][var->map.tabx] = line[var->map.tabx];
-		if (line[var->map.tabx + 1] = '\n' || line[var->map.tabx + 1] = '\0')
+		if (line[var->map.tabx + 1] == '\n' || line[var->map.tabx + 1] == '\0')
 			break ;
 		var->map.tabx++;
 	}
@@ -75,7 +75,7 @@ int	init_map(t_data *var)
 		return (1);
 	if (map_checker(var) != 0)
 		return (1);
-	if (f(var) != 0)
+	if (map_builder(var) != 0)
 		return (1);
 	if (f(var) != 0)
 		return (1);

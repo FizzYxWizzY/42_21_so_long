@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:06:18 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/19 00:19:04 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/19 15:37:03 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	map_parser(t_data *var)
 	var->map.max_size_y = 0;
 	var->map.fd = open("./maps/map1.ber", O_RDONLY);
 	line = get_next_line(var->map.fd);
-	while (line) // check le nombre de ligne du fichier
+	while (line)
 	{
 		var->map.max_size_y++;
 		line = get_next_line(var->map.fd);

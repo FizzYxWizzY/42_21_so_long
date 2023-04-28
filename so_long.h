@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/19 00:19:13 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/24 16:12:18 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,9 @@ typedef struct s_mdata {
 	int			taby;
 	int			tabmaxx; // set in map_parser, used to know the end of the line.
 	int			tabmaxy; // set in map_parser, used to know end of tab[]
-	// int			groundx;
-	// int			groundy;
-	// int			wallx;
-	// int			wally;
-	// int			doorx;
-	// int			doory;
-	// int			itemx;
-	// int			itemy;
+	int			ecount;
+	int			pcount;
+	int			ccount;
 	char		*relative_path_ground;
 	char		*relative_path_wall;
 	char		*relative_path_door;

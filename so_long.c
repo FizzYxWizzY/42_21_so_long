@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:55:11 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/18 23:17:50 by mflury           ###   ########.fr       */
+/*   Updated: 2023/04/25 18:12:59 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,10 @@ void	var_init(t_data *var)
 	var->map.taby = 0;
 	var->map.tabmaxx = 0;
 	var->map.tabmaxy = 0;
-	var->line = NULL;
-// 	var->map.groundx = 0;
-// 	var->map.groundy = 0;
-// 	var->map.wallx = 0;
-//	var->map.wally = 0;
-//	var->map.itemx = 0;
-// 	var->map.itemy = 0;
-// 	var->map.doorx = 0;
-// 	var->map.doory = 0;
-
+	var->map.line = NULL;
+	var->map.ecount = 0;
+	var->map.pcount = 0;
+	var->map.ccount = 0;
 }
 
 void	initial_frame(t_data *var)
