@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:53:16 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/28 19:11:09 by mflury           ###   ########.fr       */
+/*   Updated: 2023/05/10 18:53:38 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,13 @@ typedef struct s_mdata {
 	int			fd;
 	char		*line;
 	char		**tab; 
-	int			tabx;  //
-	int			taby;  //
-	int			tabmaxx; // set in map_parser, useed to know the end of the line.
-	int			tabmaxy; // set in map_parser, used to know end of tab[]
+	int			tabx;
+	int			taby;
+	int			tabmaxx;
+	int			tabmaxy;
+	int			pcount;
+	int			ccount;
+	int			ecount;
 	char		*relative_path_ground;
 	char		*relative_path_wall;
 	char		*relative_path_door;
@@ -56,7 +59,19 @@ typedef struct s_data {
 }				t_data;
 
 void	var_init(t_data *var);
-int		map_parser(t_data *var);
+int		map_init(t_data *var, char *map_path);
+int		map_parser(t_data *var, char *map_path);
+int		map_checker(t_data *var);
+
+int		first_last_line(t_data *var);
+int		first_last_column(t_data *var);
+void	pce_counter(t_data *var);
 void	error(char *msg);
+size_t	ft_strlen(const char *str);
+int		floodfiller(t_data *var);
+
+void	free_copy(char **copy);
+void	free_tab(t_data *var);
+void	free_line(t_data *var);
 
 #endif

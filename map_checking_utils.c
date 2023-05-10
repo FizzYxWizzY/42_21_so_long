@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:38:25 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/24 16:52:11 by mflury           ###   ########.fr       */
+/*   Updated: 2023/05/05 17:42:18 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,22 @@ void	pce_counter(t_data *var)
 		var->map.tabx = 0;
 		while (var->map.tab[var->map.taby][var->map.tabx] != '\0')
 		{
-			else if (var->map.tab[var->map.taby][var->map.tabx] == 'E')
+			if (var->map.tab[var->map.taby][var->map.tabx] == 'E')
 			{
 				var->map.ecount++;
-				var->map.tabx++;
 			}
 			else if (var->map.tab[var->map.taby][var->map.tabx] == 'C')
 			{
 				var->map.ccount++;
-				var->map.tabx++;
 			}
 			else if (var->map.tab[var->map.taby][var->map.tabx] == 'P')
+			{
 				var->map.pcount++;
-				var->map.tabx++;
-			else
-				var->map.tabx++;
+			}
+			var->map.tabx++;
 		}
 		var->map.taby++;
 	}
-	return ;
 }
 
 // check if all the first line is only walls. (top of the map)
@@ -68,16 +65,16 @@ int	first_last_line(t_data *var)
 int	first_last_column(t_data *var)
 {
 	var->map.taby = 0;
-	while (var->map.tab[var->map.taby][0] != '\0')
+	while (var->map.tab[var->map.taby] != NULL)
 	{
 		if (var->map.tab[var->map.taby][0] != '1')
 			return (1);
 		var->map.taby++;
 	}
 	var->map.taby = 0;
-	while (var->map.tab[var->map.taby][0] != '\0')
+	while (var->map.tab[var->map.taby] != NULL)
 	{
-		if (var->map.tab[var->map.taby - 1][var->map.tabmaxx - 1] != '1')
+		if (var->map.tab[var->map.taby][var->map.tabmaxx - 2] != '1')
 			return (1);
 		var->map.taby++;
 	}

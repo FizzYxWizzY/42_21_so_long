@@ -6,11 +6,26 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:12:31 by mflury            #+#    #+#             */
-/*   Updated: 2023/04/24 16:48:39 by mflury           ###   ########.fr       */
+/*   Updated: 2023/05/08 19:39:08 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	form_checker(t_data *var)
+{
+	size_t	lenght;
+
+	var->map.taby = 0;
+	lenght = ft_strlen(var->map.tab[var->map.tabmaxy - 1]);
+	while (var->map.taby < var->map.tabmaxy - 1)
+	{
+		if (lenght != ft_strlen(var->map.tab[var->map.taby]))
+			return (1);
+		var->map.taby++;
+	}
+	return (0);
+}
 
 int	pce_checker(t_data *var)
 {
@@ -72,11 +87,26 @@ int	char_checker(t_data *var)
 // 	check if there is at least a collectible.
 int	map_checker(t_data *var)
 {
+	if (form_checker(var) != 0)
+	{
+		error("map isn't rectangular");
+		return (1);
+	}
 	if (char_checker(var) != 0)
+	{
+		error("map contains other char");
 		return (1);
+	}
 	if (wall_checker(var) != 0)
+	{
+		error("map is not closed by walls");
 		return (1);
+	}
 	if (pce_checker(var) != 0)
+	{
+		error("map doesnt have all the pce required");
 		return (1);
+	}
+	floodfiller(var);
 	return (0);
 }
