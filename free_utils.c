@@ -6,11 +6,13 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:35:24 by mflury            #+#    #+#             */
-/*   Updated: 2023/05/26 19:30:20 by mflury           ###   ########.fr       */
+/*   Updated: 2023/05/30 20:30:23 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+// utils to free
 
 void	free_line(t_data *var)
 {
