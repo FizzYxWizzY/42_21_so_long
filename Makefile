@@ -6,7 +6,7 @@
 #    By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 16:01:02 by mflury            #+#    #+#              #
-#    Updated: 2023/05/30 20:07:47 by mflury           ###   ########.fr        #
+#    Updated: 2023/05/30 20:08:54 by mflury           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,5 +62,3 @@ zip :
 	@zip -r $(NAME).zip $(SRC) so_long.h Makefile
 
 .PHONY : clean fclean re tar zip
-
-# Une modif
