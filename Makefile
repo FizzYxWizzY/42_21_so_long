@@ -6,7 +6,7 @@
 #    By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 16:01:02 by mflury            #+#    #+#              #
-#    Updated: 2023/05/30 20:08:54 by mflury           ###   ########.fr        #
+#    Updated: 2023/06/01 16:21:24 by mflury           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ clean :
 	
 fclean : clean 
 	@echo Deleting others files
+	@make fclean -C printf/
+	@make fclean -C gnl/
 	@rm -f $(NAME) $(NAME).tar.gz $(NAME).zip
 
 re : fclean all
